@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author personal
  */
-public interface OderDetailsDao {
+public interface OrderDetailsDao {
     
     public void AddOrderDetails(OrderDetails OrderDetails)throws SQLException;
     

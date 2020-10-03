@@ -27,7 +27,7 @@ public class OrderDaoImpl implements OrderDao {
     public void AddOrder(Order Order) throws SQLException {
         Connection con = DatabaseConnection.getDatabaseConnection();
         PreparedStatement ps = con.prepareStatement("insert into order(order_user_id, order_item_count,"
-                + " order_status, order_delivery_address, order_total_amount, order_discount_percentage, order_description)");
+                + " order_status, order_delivery_address, order_total_amount, order_discount_percentage, order_description) values (?,?,?,?,?,?,?)");
         ps.setInt(1, 1);
         ps.setInt(2, Order.getItemCount());
         ps.setInt(3, 1);
