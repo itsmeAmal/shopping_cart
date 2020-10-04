@@ -27,6 +27,8 @@
     <body>
 
         <h2>Cart Items</h2>
+        <%                ResultSet rset = new OrderDetailDaoImpl().GetAllOrderDetails();
+        %>
         <table>
             <tr>
                 <th>Item Name</th>
@@ -34,7 +36,6 @@
                 <th>Quantity</th>
             </tr>
             <%
-                ResultSet rset = new OrderDetailDaoImpl().GetAllOrderDetails();
                 while (rset.next()) {
             %>
             <tr>

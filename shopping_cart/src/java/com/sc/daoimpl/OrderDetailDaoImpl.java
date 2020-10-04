@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class OrderDetailDaoImpl implements OrderDetailsDao {
 
-    private String SelectQuery = "select order_detail_id, order_detail_order_id, order_detail_item_id, order_detail_qty,"
+    private String SelectQuery = "select order_detail_id, order_detail_order_id, order_detail_item_name, order_detail_qty,"
             + " order_detail_status, order_detail_retail_price, order_detail_selling_price, order_detail_description from order_detail";
 
     @Override
