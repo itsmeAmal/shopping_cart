@@ -17,9 +17,9 @@ public class OrderDetailDaoImpl implements OrderDetailsDao {
     public void AddOrderDetails(OrderDetails OrderDetails) throws SQLException {
         Connection con = DatabaseConnection.getDatabaseConnection();
         PreparedStatement ps = con.prepareStatement("insert into order_detail (order_detail_order_id, "
-                + "order_detail_item_id, order_detail_qty, order_detail_retail_price) values (?,?,?,?)");
+                + "order_detail_item_name, order_detail_qty, order_detail_retail_price) values (?,?,?,?)");
         ps.setInt(1, OrderDetails.getOderId());
-        ps.setInt(2, OrderDetails.getItemId());
+        ps.setString(2, OrderDetails.getItemId());
         ps.setBigDecimal(3, OrderDetails.getOrderQty());
         ps.setBigDecimal(4, OrderDetails.getRetailPrice());
         ps.executeUpdate();

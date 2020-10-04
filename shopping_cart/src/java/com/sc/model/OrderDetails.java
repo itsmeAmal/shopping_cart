@@ -15,7 +15,7 @@ public class OrderDetails {
  
     private int Id;
     private int OderId;
-    private int ItemId;
+    private String ItemId;
     private BigDecimal OrderQty;
     private int Status;
     private BigDecimal RetailPrice;
@@ -53,14 +53,14 @@ public class OrderDetails {
     /**
      * @return the ItemId
      */
-    public int getItemId() {
+    public String getItemId() {
         return ItemId;
     }
 
     /**
      * @param ItemId the ItemId to set
      */
-    public void setItemId(int ItemId) {
+    public void setItemId(String ItemId) {
         this.ItemId = ItemId;
     }
 

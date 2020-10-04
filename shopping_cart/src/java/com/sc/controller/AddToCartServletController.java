@@ -53,17 +53,15 @@ public class AddToCartServletController extends HttpServlet {
         String qty3 = request.getParameter("qty_3");
 
         Order order = new Order();
-        order.setAmount(Validations.getBigDecimalFromString(item1));
-
         OrderDetailDaoImpl orderDetailDaoImpl = new OrderDetailDaoImpl();
         try {
             orderDetailDaoImpl.DeleteOrderDetailAll();    // delete this line after merging with other part of project
         } catch (SQLException ex) {
             Logger.getLogger(AddToCartServletController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for (int i = 0; i < 3; i++) {  // remove for loop after merging with other part of project
+//        for (int i = 0; i < 3; i++) {  // remove for loop after merging with other part of project
             OrderDetails orderDetails = new OrderDetails();
-            orderDetails.setItemId(1);
+            orderDetails.setItemId(item1);
             orderDetails.setOrderQty(Validations.getBigDecimalOrZeroFromString(qty1));
             orderDetails.setRetailPrice(Validations.getBigDecimalOrZeroFromString(value1));
             orderDetails.setSellingPrice(Validations.getBigDecimalOrZeroFromString(value1));
@@ -73,7 +71,6 @@ public class AddToCartServletController extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(AddToCartServletController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
         response.sendRedirect("ItemsListPage.jsp");
     }
 

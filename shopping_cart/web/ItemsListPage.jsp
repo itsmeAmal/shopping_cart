@@ -29,33 +29,32 @@
         </style>
     </head>
     <body>
-        <form action="AddToCartServletController">
-            <div class="w3-container w3-teal">
-                <h1>Items</h1>
-            </div>
-            <div class="w3-container">
-                <h2>Add Items To Cart</h2>
-                <ul class="w3-ul w3-card-4">
+        <div class="w3-container w3-teal">
+            <h1>Items</h1>
+        </div>
+        <div class="w3-container">
+            <h2>Add Items To Cart</h2>
+            <ul class="w3-ul w3-card-4">
+                <form action="AddToCartServletController">
                     <li class="w3-bar">
                         <span onclick="this.parentElement.style.display = 'none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-                        <img src="img_avatar2.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+                        <img src="images/anchor.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
                         <input type="submit" class="button button2" value="Add To Cart">
                         <div class="w3-bar-item">
-                            <span class="w3-large">Item 1</span><br>
-                            Rs <span>1500.00</span>
+                            <span class="w3-large">Anchor Milk Powder</span><br>
+                            Rs <span>450.00</span>
                             <input type="hidden" name="item_1" value="Item Name 1"/>
                             <input type="hidden" name="value_1" value="1500.00"/>
                         </div><br>
                         <input class="w3-input w3-border" name="qty_1" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty" >
                     </li>
-
                     <li class="w3-bar">
                         <span onclick="this.parentElement.style.display = 'none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-                        <img src="img_avatar5.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+                        <img src="images/sunlight.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
                         <input type="submit" class="button button2" value="Add To Cart">
                         <div class="w3-bar-item">
-                            <span class="w3-large">Item 2</span><br>
-                            Rs <span>1800.00</span>
+                            <span class="w3-large">Sunlight Soap</span><br>
+                            Rs <span>65.00</span>
                             <input type="hidden" name="item_2" value="Item Name 2"/>
                             <input type="hidden" name="value_2" value="1800.00"/>
                         </div><br>
@@ -64,7 +63,7 @@
 
                     <li class="w3-bar">
                         <span onclick="this.parentElement.style.display = 'none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-                        <img src="img_avatar6.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+                        <img src="images/signal.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
                         <input type="submit" class="button button2" value="Add To Cart">
                         <div class="w3-bar-item">
                             <span class="w3-large">Item 3</span><br>
@@ -74,9 +73,9 @@
                         </div><br>
                         <input class="w3-input w3-border" name="qty_3" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty">
                     </li>
-                </ul>
-            </div>
-        </form>
+                </form>
+            </ul>
+        </div>
         <form action="">
             <div style="position: absolute; left: 70%; top: 13%; width: 32px; height: 32px;">
                 <input class="w3-input w3-border" name="qty_3" type="submit" value="My Cart" style="position: relative; width: 100px; left: 210px" placeholder="Qty">               
