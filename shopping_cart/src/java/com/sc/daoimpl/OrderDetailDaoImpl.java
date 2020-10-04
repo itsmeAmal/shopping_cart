@@ -28,12 +28,24 @@ public class OrderDetailDaoImpl implements OrderDetailsDao {
 
     @Override
     public void UpdateOrderDetails(OrderDetails OrderDetails) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void DeleteOrderDetail(int Id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        Connection con = DatabaseConnection.getDatabaseConnection();
+        PreparedStatement ps = con.prepareStatement("delete from order_detail where order_detail_item_name=?");
+        ps.setInt(1, Id);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void DeleteOrderDetailByItemName(String ItemName) throws SQLException {
+        Connection con = DatabaseConnection.getDatabaseConnection();
+        PreparedStatement ps = con.prepareStatement("delete from order_detail where order_detail_item_name=?");
+        ps.setString(1, ItemName); 
+        ps.executeUpdate();
+        ps.close();
     }
 
     public void DeleteOrderDetailAll() throws SQLException {
@@ -45,7 +57,7 @@ public class OrderDetailDaoImpl implements OrderDetailsDao {
 
     @Override
     public ResultSet GetAllOrderDetails() throws SQLException {
-       return new CommonDaoImpl().getAllRecords(SelectQuery);
+        return new CommonDaoImpl().getAllRecords(SelectQuery);
     }
 
     @Override

@@ -5,10 +5,7 @@
  */
 package com.sc.controller;
 
-import com.sc.daoimpl.OrderDaoImpl;
 import com.sc.daoimpl.OrderDetailDaoImpl;
-import com.sc.model.Order;
-import com.sc.model.OrderDetails;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -24,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author personal
  */
-@WebServlet(name = "AddToCartServletController", urlPatterns = {"/AddToCartServletController"})
-public class AddToCartServletController extends HttpServlet {
+@WebServlet(name = "DeleteItemServletController", urlPatterns = {"/DeleteItemServletController"})
+public class DeleteItemServletController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,38 +37,13 @@ public class AddToCartServletController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String item1 = request.getParameter("item_1");
-        String item2 = request.getParameter("item_2");
-        String item3 = request.getParameter("item_3");
-
-        String value1 = request.getParameter("value_1");
-        String value2 = request.getParameter("value_2");
-        String value3 = request.getParameter("value_3");
-
-        String qty1 = request.getParameter("qty_1");
-        String qty2 = request.getParameter("qty_2");
-        String qty3 = request.getParameter("qty_3");
-
-        Order order = new Order();
-        OrderDetailDaoImpl orderDetailDaoImpl = new OrderDetailDaoImpl();
-//        try {
-//            orderDetailDaoImpl.DeleteOrderDetailAll();    // delete this line after merging with other part of project
-//        } catch (SQLException ex) {
-//            Logger.getLogger(AddToCartServletController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        for (int i = 0; i < 3; i++) {  // remove for loop after merging with other part of project
-            OrderDetails orderDetails = new OrderDetails();
-            orderDetails.setItemId(item1);
-            orderDetails.setOrderQty(Validations.getBigDecimalOrZeroFromString(qty1));
-            orderDetails.setRetailPrice(Validations.getBigDecimalOrZeroFromString(value1));
-            orderDetails.setSellingPrice(Validations.getBigDecimalOrZeroFromString(value1));
-            orderDetails.setStatus(1);
-            try {
-                new OrderDetailDaoImpl().AddOrderDetails(orderDetails);
-            } catch (SQLException ex) {
-                Logger.getLogger(AddToCartServletController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        response.sendRedirect("ItemsListPage.jsp");
+        String ItemName = request.getParameter("dlt");
+        try {
+            new OrderDetailDaoImpl().DeleteOrderDetailByItemName(ItemName);
+        } catch (SQLException ex) {
+            Logger.getLogger(DeleteItemServletController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        response.sendRedirect("MyCart.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

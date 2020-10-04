@@ -34,7 +34,7 @@
         </div>
         <div class="w3-container">
             <h2>Add Items To Cart</h2>
-            <ul class="w3-ul w3-card-4">
+            <ul class="w3-ul w3-card-4" style="width: 800px">
                 <form action="AddToCartServletController">
                     <li class="w3-bar">
                         <span onclick="this.parentElement.style.display = 'none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
@@ -43,8 +43,8 @@
                         <div class="w3-bar-item">
                             <span class="w3-large">Anchor Milk Powder</span><br>
                             Rs <span>450.00</span>
-                            <input type="hidden" name="item_1" value="Item Name 1"/>
-                            <input type="hidden" name="value_1" value="1500.00"/>
+                            <input type="hidden" name="item_1" value="Anchor Milk Powder"/>
+                            <input type="hidden" name="value_1" value="450.00"/>
                         </div><br>
                         <input class="w3-input w3-border" name="qty_1" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty" >
                     </li>
@@ -55,8 +55,8 @@
                         <div class="w3-bar-item">
                             <span class="w3-large">Sunlight Soap</span><br>
                             Rs <span>65.00</span>
-                            <input type="hidden" name="item_2" value="Item Name 2"/>
-                            <input type="hidden" name="value_2" value="1800.00"/>
+                            <input type="hidden" name="item_2" value="Sunlight Soap"/>
+                            <input type="hidden" name="value_2" value="65.00"/>
                         </div><br>
                         <input class="w3-input w3-border" name="qty_2" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty">
                     </li>
@@ -66,18 +66,18 @@
                         <img src="images/signal.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
                         <input type="submit" class="button button2" value="Add To Cart">
                         <div class="w3-bar-item">
-                            <span class="w3-large">Item 3</span><br>
-                            Rs <span>750.00</span>
-                            <input type="hidden" name="item_3" value="Item Name 3"/>
-                            <input type="hidden" name="value_3" value="750.00"/>
+                            <span class="w3-large">Signal Toothpaste</span><br>
+                            Rs <span>75.00</span>
+                            <input type="hidden" name="item_3" value="Signal Toothpaste"/>
+                            <input type="hidden" name="value_3" value="75.00"/>
                         </div><br>
                         <input class="w3-input w3-border" name="qty_3" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty">
                     </li>
                 </form>
             </ul>
         </div>
-        <form action="">
-            <div style="position: absolute; left: 70%; top: 13%; width: 32px; height: 32px;">
+        <form action="MyCart.jsp">
+            <div style="position: absolute; left: 35%; top: 13%; width: 32px; height: 32px;">
                 <input class="w3-input w3-border" name="qty_3" type="submit" value="My Cart" style="position: relative; width: 100px; left: 210px" placeholder="Qty">               
             </div>
         </form>

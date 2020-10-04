@@ -22,6 +22,28 @@
             }
 
             tr:nth-child(even) {background-color: #f2f2f2;}
+
+            table {
+                width:100%;
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+            #t01 tr:nth-child(even) {
+                background-color: #eee;
+            }
+            #t01 tr:nth-child(odd) {
+                background-color: #fff;
+            }
+            #t01 th {
+                background-color: black;
+                color: white;
+            }
         </style>
     </head>
     <body>
@@ -34,6 +56,7 @@
                 <th>Item Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th>#</th>
             </tr>
             <%
                 while (rset.next()) {
@@ -41,12 +64,17 @@
             <tr>
                 <td><%=rset.getString("order_detail_item_name")%>         </td> 
                 <td><%=rset.getBigDecimal("order_detail_retail_price")%>  </td>
-                <td><%=rset.getString("order_detail_item_name")%>         </td>
+                <td><%=rset.getString("order_detail_qty")%>         </td>
+                <td>
+                    <form action="DeleteItemServletController">
+                        <input type="submit" value="Remove">
+                        <input type="hidden" name="dlt" value="<%=rset.getString("order_detail_item_name")%>">
+                    </form>
+                </td>
             </tr> 
             <%
                 }
             %>
         </table>
-
     </body>
 </html>
