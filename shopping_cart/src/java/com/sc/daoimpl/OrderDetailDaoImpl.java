@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.sc.daoimpl;
 
 import com.sc.connection.DatabaseConnection;
@@ -13,10 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- *
- * @author personal
- */
 public class OrderDetailDaoImpl implements OrderDetailsDao {
 
     private String SelectQuery = "select order_detail_id, order_detail_order_id, order_detail_item_id, order_detail_qty,"
@@ -37,12 +28,12 @@ public class OrderDetailDaoImpl implements OrderDetailsDao {
 
     @Override
     public void UpdateOrderDetails(OrderDetails OrderDetails) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     @Override
     public void DeleteOrderDetail(int Id) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     public void DeleteOrderDetailAll() throws SQLException {
@@ -54,12 +45,11 @@ public class OrderDetailDaoImpl implements OrderDetailsDao {
 
     @Override
     public ResultSet GetAllOrderDetails() throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return new CommonDaoImpl().getAllRecords(SelectQuery);
     }
 
     @Override
     public ResultSet GetOrderDetailsByOneAttribute(String Attribute, String Condition, String Value) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

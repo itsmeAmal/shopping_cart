@@ -43,7 +43,7 @@
                         <div class="w3-bar-item">
                             <span class="w3-large">Item 1</span><br>
                             Rs <span>1500.00</span>
-                            <input type="hidden" name="item_1" value="1500.00"/>
+                            <input type="hidden" name="item_1" value="Item Name 1"/>
                             <input type="hidden" name="value_1" value="1500.00"/>
                         </div><br>
                         <input class="w3-input w3-border" name="qty_1" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty" >
@@ -56,7 +56,7 @@
                         <div class="w3-bar-item">
                             <span class="w3-large">Item 2</span><br>
                             Rs <span>1800.00</span>
-                            <input type="hidden" name="item_2" value="1800.00"/>
+                            <input type="hidden" name="item_2" value="Item Name 2"/>
                             <input type="hidden" name="value_2" value="1800.00"/>
                         </div><br>
                         <input class="w3-input w3-border" name="qty_2" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty">
@@ -69,18 +69,18 @@
                         <div class="w3-bar-item">
                             <span class="w3-large">Item 3</span><br>
                             Rs <span>750.00</span>
-                            <input type="hidden" name="item_3" value="750.00"/>
+                            <input type="hidden" name="item_3" value="Item Name 3"/>
                             <input type="hidden" name="value_3" value="750.00"/>
                         </div><br>
                         <input class="w3-input w3-border" name="qty_3" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty">
                     </li>
                 </ul>
             </div>
+        </form>
+        <form action="">
             <div style="position: absolute; left: 70%; top: 13%; width: 32px; height: 32px;">
-                <input class="w3-input w3-border" name="qty_3" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty">
-                
+                <input class="w3-input w3-border" name="qty_3" type="submit" value="My Cart" style="position: relative; width: 100px; left: 210px" placeholder="Qty">               
             </div>
-            
         </form>
     </body>
 </html>
