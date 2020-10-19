@@ -4,6 +4,8 @@
     Author     : personal
 --%>
 
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.sc.daoimpl.ItemDaoImpl"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,10 @@
         <title>Items</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <style>
             .button {
                 background-color: #4CAF50; /* Green */
@@ -34,51 +40,56 @@
         </div>
         <div class="w3-container">
             <h2>Add Items To Cart</h2>
-            <ul class="w3-ul w3-card-4" style="width: 800px">
-                <form action="AddToCartServletController">
-                    <li class="w3-bar">
-                        <span onclick="this.parentElement.style.display = 'none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-                        <img src="images/anchor.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
-                        <input type="submit" class="button button2" value="Add To Cart">
-                        <div class="w3-bar-item">
-                            <span class="w3-large">Anchor Milk Powder</span><br>
-                            Rs <span>450.00</span>
-                            <input type="hidden" name="item_1" value="Anchor Milk Powder"/>
-                            <input type="hidden" name="value_1" value="450.00"/>
-                        </div><br>
-                        <input class="w3-input w3-border" name="qty_1" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty" >
-                    </li>
-                    <li class="w3-bar">
-                        <span onclick="this.parentElement.style.display = 'none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-                        <img src="images/sunlight.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
-                        <input type="submit" class="button button2" value="Add To Cart">
-                        <div class="w3-bar-item">
-                            <span class="w3-large">Sunlight Soap</span><br>
-                            Rs <span>65.00</span>
-                            <input type="hidden" name="item_2" value="Sunlight Soap"/>
-                            <input type="hidden" name="value_2" value="65.00"/>
-                        </div><br>
-                        <input class="w3-input w3-border" name="qty_2" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty">
-                    </li>
-
-                    <li class="w3-bar">
-                        <span onclick="this.parentElement.style.display = 'none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
-                        <img src="images/signal.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
-                        <input type="submit" class="button button2" value="Add To Cart">
-                        <div class="w3-bar-item">
-                            <span class="w3-large">Signal Toothpaste</span><br>
-                            Rs <span>75.00</span>
-                            <input type="hidden" name="item_3" value="Signal Toothpaste"/>
-                            <input type="hidden" name="value_3" value="75.00"/>
-                        </div><br>
-                        <input class="w3-input w3-border" name="qty_3" type="text" style="position: relative; width: 100px; left: 210px" placeholder="Qty">
-                    </li>
+            <table class="table">
+                <thead>
+                    <%
+                        ResultSet rset = new ItemDaoImpl().GetAllItems();
+                        int i = 0;
+                    %>
+                    <tr style="background-color: #000000; color: white">
+                        <th>#</th>
+                        <th>Item Name, Brand and Category</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        while (rset.next()) {
+                    %>
+                    <tr class="info" style="height: 40px; top: 0px;">
+                <form action="MyCartServletController">
+                    <td><%= ++i%></td>
+                    <td>
+                        <%= rset.getString("item_name")%><br>
+                        <h3> <%= rset.getString("item_brand")%></h3><br>
+                        <h6> <%= rset.getString("item_model")%></h6><br>
+                        <input type="hidden" value="<%= rset.getInt("item_id")%>" name="hid_item_id">
+                    </td>
+                    <td>
+                        <h4> <%= rset.getString("item_price")%></h4>
+                    </td>
+                    <td>
+                        <h6> <input type="text" class="form-control" name="item_qty" placeholder="Item Quantity"></h6><br>
+                    </td>
+                    <td>
+                        <input class="btn btn-primary" type="submit" value="Add to cart" style="position: relative; width: 100px; left: 0px" placeholder="Qty">               
+                        <input type="hidden"  value="<%= rset.getString("item_price")%>" name="hid_id">               
+                        <input type="hidden"  value=" <%= rset.getString("item_name")%>" name="hid_name">               
+                        <input type="hidden"  value="<%= rset.getString("item_price")%>" name="hid_price">      
+                    </td>
                 </form>
-            </ul>
+                </tr>
+                <%
+                    }
+                %>
+                </tbody>
+            </table>
         </div>
         <form action="MyCart.jsp">
-            <div style="position: absolute; left: 35%; top: 13%; width: 32px; height: 32px;">
-                <input class="w3-input w3-border" name="qty_3" type="submit" value="My Cart" style="position: relative; width: 100px; left: 210px" placeholder="Qty">               
+            <div style="position: absolute; left: 73%; top: 55px; width: 100px; height: 50px;">
+                <input class="btn btn-warning" value="My Cart" name="add_to_cart" type="submit"  style="position: relative; width: 100px; left: 210px" placeholder="Qty">               
             </div>
         </form>
     </body>

@@ -52,8 +52,6 @@ public class AddToCartServletController extends HttpServlet {
         String qty2 = request.getParameter("qty_2");
         String qty3 = request.getParameter("qty_3");
 
-        Order order = new Order();
-        OrderDetailDaoImpl orderDetailDaoImpl = new OrderDetailDaoImpl();
 //        try {
 //            orderDetailDaoImpl.DeleteOrderDetailAll();    // delete this line after merging with other part of project
 //        } catch (SQLException ex) {

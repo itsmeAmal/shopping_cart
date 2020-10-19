@@ -45,13 +45,19 @@
                 color: white;
             }
         </style>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
     <body>
 
         <h2>Cart Items</h2>
-        <%                ResultSet rset = new OrderDetailDaoImpl().GetAllOrderDetails();
+        <%                
+            ResultSet rset = new OrderDetailDaoImpl().GetAllOrderDetails();
         %>
-        <table>
+        <table class="table">
             <tr>
                 <th>Item Name</th>
                 <th>Price</th>
@@ -67,7 +73,7 @@
                 <td><%=rset.getString("order_detail_qty")%>         </td>
                 <td>
                     <form action="DeleteItemServletController">
-                        <input type="submit" value="Remove">
+                        <input type="submit" value="Remove" class="btn btn-primary">
                         <input type="hidden" name="dlt" value="<%=rset.getString("order_detail_item_name")%>">
                     </form>
                 </td>
