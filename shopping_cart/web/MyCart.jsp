@@ -68,9 +68,9 @@
                 while (rset.next()) {
             %>
             <tr>
-                <td><%=rset.getString("order_detail_item_name")%>         </td> 
-                <td><%=rset.getBigDecimal("order_detail_retail_price")%>  </td>
-                <td><%=rset.getString("order_detail_qty")%>         </td>
+                <td><%=rset.getString("order_detail_item_name")%></td> 
+                <td><%=rset.getBigDecimal("order_detail_retail_price")%></td>
+                <td><%=rset.getString("order_detail_qty")%></td>
                 <td>
                     <form action="DeleteItemServletController">
                         <input type="submit" value="Remove" class="btn btn-primary">
